@@ -69,7 +69,7 @@ add_compile_definitions($<$<BOOL:${LV_USE_FFMPEG}>:LV_USE_FFMPEG=1>)
 
 # Add LVGL subdirectory
 add_subdirectory(lvgl)
-target_include_directories(lvgl PUBLIC ${PROJECT_SOURCE_DIR} ${SDL2_INCLUDE_DIRS})
+target_include_directories(lvgl PUBLIC ${SDL2_INCLUDE_DIRS})
 
 # Create the main executable, depending on the FreeRTOS option
 if(USE_FREERTOS)
@@ -91,7 +91,7 @@ endif()
 
 # Define LVGL configuration as a simple include
 target_compile_definitions(main PRIVATE LV_CONF_INCLUDE_SIMPLE)
-target_link_libraries(main lvgl lvgl::examples lvgl::demos lvgl::thorvg ${SDL2_LIBRARIES} m pthread)
+target_link_libraries(main lvgl lvgl::examples lvgl::demos lvgl::thorvg SDL2::SDL2 m pthread)
 
 # Only link freertos_config if the FreeRTOS directory exists
 if(USE_FREERTOS)
