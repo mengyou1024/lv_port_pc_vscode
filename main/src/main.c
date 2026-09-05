@@ -11,6 +11,8 @@
 #include "lvgl/demos/lv_demos.h"
 #include "lvgl/examples/lv_examples.h"
 #include "lvgl/lvgl.h"
+#include "lvgl_private.h"
+#include "screen_manager.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,6 +45,7 @@ static lv_display_t *hal_init(int32_t w, int32_t h);
 
 extern void freertos_main(void);
 
+
 /*********************
  *      DEFINES
  *********************/
@@ -71,11 +74,15 @@ int main(int argc, char **argv) {
     lv_init();
 
     /*Initialize the HAL (display, input devices, tick) for LVGL*/
-    hal_init(320, 480);
+    hal_init(480, 480);
+    lv_display_set_dpi(lv_display_get_default(), 170);
 
 #if LV_USE_OS == LV_OS_NONE
 
-    lv_demo_widgets();
+    screen_manager_t *screen_manager = screen_manager_create();
+    if(screen_manager != NULL) {
+        screen_manager_load_main(screen_manager);
+    }
 
     while (1) {
         /* Periodically call the lv_task handler.
