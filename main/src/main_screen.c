@@ -105,7 +105,7 @@ main_screen_state_t *main_screen_create(void) {
     state->humidity_value = create_data_value(state->screen, 350, 142);
     state->temperature_value = create_data_value(state->screen, 20, 268);
     state->carbon_dioxide_value = create_data_value(state->screen, 350, 268);
-    state->oxygen_value = create_data_value(state->screen, 180, 187);
+    state->oxygen_value = create_data_value(state->screen, 160, 187);
 
     state->settings_button = lv_btn_create(state->screen);
     lv_obj_set_size(state->settings_button, 180, 80);
