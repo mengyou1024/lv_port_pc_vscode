@@ -91,7 +91,7 @@
 
 /** Default Dots Per Inch. Used to initialize default sizes such as widgets sized, style paddings.
  * (Not so important, you can adjust it to modify default sizes and spaces.) */
-#define LV_DPI_DEF 130              /**< [px/inch] */
+#define LV_DPI_DEF 170              /**< [px/inch] */
 
 /*=================
  * OPERATING SYSTEM
@@ -675,7 +675,7 @@
 #define LV_FONT_MONTSERRAT_28_COMPRESSED    1
 #define LV_FONT_DEJAVU_16_PERSIAN_HEBREW    1
 #define LV_FONT_SOURCE_HAN_SANS_SC_14_CJK   0  /**< 1338 most common CJK radicals */
-#define LV_FONT_SOURCE_HAN_SANS_SC_16_CJK   0  /**< 1338 most common CJK radicals */
+#define LV_FONT_SOURCE_HAN_SANS_SC_16_CJK   1  /**< 1338 most common CJK radicals */
 
 /** Pixel perfect monospaced fonts */
 #define LV_FONT_UNSCII_8  1
